@@ -8,7 +8,7 @@ Uses an extra temporary array where each element is placed at its new rotated po
 Complexity:
 - Time: O(N)
 - Space: O(N)
-*/
+
 
 class Solution {
 public:
@@ -20,5 +20,33 @@ public:
         }
 
         nums = temp;
+    }
+};
+*/
+
+
+/*
+Problem: Rotate Array
+Link: https://leetcode.com/problems/rotate-array/
+
+Rotate the array to the right by k steps.
+
+Approach:
+Uses in-place array reversal. First reverse the entire array, then reverse the first k elements and the remaining elements to achieve the required rotation efficiently.
+
+Complexity:
+- Time: O(N)
+- Space: O(1)
+*/
+
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k % n;
+
+        reverse(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k, nums.end());
     }
 };
